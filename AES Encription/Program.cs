@@ -16,6 +16,7 @@ namespace AES_Encription
             try
             {
 
+
                 string original = "Спокойной Ночи))";
                 string encriptedmessage = "";
                 // Create a new instance of the Aes
