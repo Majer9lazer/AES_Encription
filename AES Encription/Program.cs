@@ -17,11 +17,37 @@ namespace AES_Encription
             {
 
 
-                string original = "Спокойной Ночи))";
+              //  string original = "Спокойной Ночи))";
                 string encriptedmessage = "";
                 // Create a new instance of the Aes
                 // class.  This generates a new key and initialization 
                 // vector (IV).
+                string encriptedmessage_ = @"177.202.29.195.143.157.71.155.100.237.238.219.78.52.3.86.127.199.67.250.37.45.137.120.41.101.197.135.153.116.9.150";
+                string Key = "91.87.218.41.248.3.161.109.176.219.191.234.233.178.88.41.192.190.205.197.100.205.161.48.220.7.238.214.92.190.114.164";
+                string IV = "104.15.161.126.187.213.109.192.72.223.205.21.55.199.186.235";
+                var a_ = encriptedmessage_.Split('.');
+                var b_ = Key.Split('.');
+                var c_ = IV.Split('.');
+                byte[] sub_a = new byte[a_.Length];
+                for (int i = 0; i < a_.Length; i++)
+                {
+                    sub_a[i] =Convert.ToByte(a_[i]);
+                }
+                byte[] sub_b = new byte[b_.Length];
+                byte[] sub_c = new byte[c_.Length];
+                for (int i = 0; i < b_.Length; i++)
+                {
+                    sub_b[i] = Convert.ToByte(b_[i]);
+                }
+
+                for (int i = 0; i < c_.Length; i++)
+                {
+                    sub_c[i] = Convert.ToByte(c_[i]);
+                }
+
+                string msg = DecryptStringFromBytes_Aes(sub_a, sub_b, sub_c);
+                Console.WriteLine(msg);
+                Console.ReadLine();
                 using (Aes myAes = Aes.Create())
                 {
 
